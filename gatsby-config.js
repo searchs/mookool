@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
-    title: 'Mookool'
+    siteUrl: 'https://www.katchfashion.com',
+    title: 'Mookool Platforms'
   },
   plugins: [
     'gatsby-plugin-image',
@@ -32,6 +32,14 @@ module.exports = {
         path: './src/pages/'
       },
       __key: 'pages'
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `blog`,
+        path: `${__dirname}/blog`
+      },
+      __key: 'blog'
     }
   ]
 };

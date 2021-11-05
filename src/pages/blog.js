@@ -1,17 +1,30 @@
 // Step 1: Import React
 import * as React from 'react';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 
 // Step 2: Define your component
-const BlogPage = () => {
+const BlogPage = ({ data }) => {
   return (
-    <Layout pageTitle='MooKool Posts'>
-      <p>
-        Hi there! I'm the proud creator of this site, which I built with Gatsby.
-      </p>
+    <Layout pageTitle='Blog Posts'>
+      <ul>
+        {data.allFile.nodes.map((node) => (
+          <li key={node.name}>{node.name}</li>
+        ))}
+      </ul>
     </Layout>
   );
 };
+
+export const query = graphql`
+  query {
+    allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+      nodes {
+        name
+      }
+    }
+  }
+`;
 
 // Step 3: Export your component
 export default BlogPage;
