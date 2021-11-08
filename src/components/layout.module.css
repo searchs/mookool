@@ -23,7 +23,11 @@
 }
 
 .nav-link-text {
-  color: black;
+  color: #000EBA;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
 }
 
 .site-title {
